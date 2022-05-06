@@ -14,8 +14,18 @@ import kotlinx.android.synthetic.main.fragment_home_page.*
 class homePageFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val tasarim = layoutInflater.inflate(R.layout.fragment_home_page,container,false)
-        Navigation.findNavController(girisButton).navigate(R.id.action_homePageFragment_to_categoryPageFragment)
+
+
 
         return tasarim
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        girisButton.setOnClickListener {
+            Navigation.findNavController(girisButton).navigate(R.id.action_homePageFragment_to_categoryPageFragment)
+
+        }
+        //Navigation.findNavController(girisButton).navigate(R.id.action_homePageFragment_to_categoryPageFragment)
     }
 }
