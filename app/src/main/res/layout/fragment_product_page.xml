@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.productPageFragment">
+    tools:context=".views.productPageFragment"
+    android:background="@color/brainTheme">
 
     <ImageView
         android:id="@+id/imageView"
@@ -42,6 +43,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textColor="@color/black"
         android:id="@+id/textView"
         android:layout_width="361dp"
         android:layout_height="41dp"
@@ -53,6 +57,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textColor="@color/black"
         android:id="@+id/textView2"
         android:layout_width="361dp"
         android:layout_height="41dp"

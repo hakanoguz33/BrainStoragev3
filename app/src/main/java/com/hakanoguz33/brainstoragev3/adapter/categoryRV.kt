@@ -29,6 +29,10 @@ class categoryRV(private val mContext: Context, private val disaridanListe:List<
     override fun onBindViewHolder(holder: cardViewTasarimTutucu, position: Int) {
         val temp:urun = disaridanListe.get(position)
         holder.urunName.text = temp.isim
+
+        holder.satirCardView.setOnClickListener{
+
+        }
     }
 
     override fun getItemCount(): Int {
