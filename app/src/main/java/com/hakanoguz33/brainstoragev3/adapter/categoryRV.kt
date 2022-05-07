@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.model.urun
+import kotlinx.android.synthetic.main.fragment_home_page.*
 
 class categoryRV(private val mContext: Context, private val disaridanListe:List<urun>)
     : RecyclerView.Adapter<categoryRV.cardViewTasarimTutucu>() {
@@ -31,7 +33,7 @@ class categoryRV(private val mContext: Context, private val disaridanListe:List<
         holder.urunName.text = temp.isim
 
         holder.satirCardView.setOnClickListener{
-
+            Navigation.findNavController(holder.satirCardView).navigate(R.id.action_categoryPageFragment_to_productPageFragment)
         }
     }
 

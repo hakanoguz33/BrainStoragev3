@@ -22,6 +22,11 @@ class categoryPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         categoryPageRecyclerView.layoutManager = LinearLayoutManager(context)
+        urunList = ArrayList<urun>()
+        val a1 = urun("a",5)
+        val a2 =urun("b",6)
+        urunList.add(a1)
+        urunList.add(a2)
         val adapter = activity?.let { categoryRV(it.applicationContext,urunList) }
         categoryPageRecyclerView.adapter = adapter
     }
