@@ -5,13 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.view.get
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.db.kategoriDB
+import com.hakanoguz33.brainstoragev3.db.urunDB
 
-class productCategoryAdapter(mContext: Context,private val disaridanListe:List<kategoriDB>):RecyclerView.Adapter<productCategoryAdapter.tasarimTutucu>() {
+class productCategoryAdapter(mContext: Context,private val disaridanListe:List<urunDB>):RecyclerView.Adapter<productCategoryAdapter.tasarimTutucu>() {
     inner class tasarimTutucu(view: View):RecyclerView.ViewHolder(view){
         val cardviewim:CardView
         val kategoriName:TextView
@@ -26,9 +29,13 @@ class productCategoryAdapter(mContext: Context,private val disaridanListe:List<k
     }
 
     override fun onBindViewHolder(holder: tasarimTutucu, position: Int) {
-        var kategoriObject = kategoriDB(0,"a")
-        kategoriObject = disaridanListe.get(position)
-        holder.kategoriName.text = kategoriObject.kategori_isim
+
+        val urunObject:urunDB = disaridanListe.get(position)
+        holder.kategoriName.text = urunObject.isim
+
+        holder.cardviewim.setOnClickListener {
+            Navigation.findNavController(holder.cardviewim).navigate(R.id.action_categoryPageFragment_to_productCategoryFragment)
+        }
     }
 
     override fun getItemCount(): Int {
