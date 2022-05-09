@@ -34,12 +34,7 @@ class categoryRV(private val mContext: Context, private val disaridanListe:List<
         holder.urunName.text = temp.kategori_isim
 
         holder.satirCardView.setOnClickListener{
-            try {
-
-                Navigation.findNavController(holder.satirCardView).navigate(R.id.action_productCategoryFragment_to_productPageFragment)
-            }catch (e:Exception){
-                e.printStackTrace()
-            }
+            Navigation.findNavController(holder.satirCardView).navigate(R.id.action_categoryPageFragment_to_productCategoryFragment)
         }
     }
 

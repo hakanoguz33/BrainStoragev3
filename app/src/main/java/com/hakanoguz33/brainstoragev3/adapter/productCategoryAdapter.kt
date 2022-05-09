@@ -34,7 +34,7 @@ class productCategoryAdapter(mContext: Context,private val disaridanListe:List<u
         holder.kategoriName.text = urunObject.isim
 
         holder.cardviewim.setOnClickListener {
-            Navigation.findNavController(holder.cardviewim).navigate(R.id.action_categoryPageFragment_to_productCategoryFragment)
+            Navigation.findNavController(holder.cardviewim).navigate(R.id.action_productCategoryFragment_to_productPageFragment)
         }
     }
 

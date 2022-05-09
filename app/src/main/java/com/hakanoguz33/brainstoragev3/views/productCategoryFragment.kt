@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.adapter.categoryRV
 import com.hakanoguz33.brainstoragev3.adapter.productCategoryAdapter
+import com.hakanoguz33.brainstoragev3.db.brainStorageDb
 import com.hakanoguz33.brainstoragev3.db.kategoriDB
 import com.hakanoguz33.brainstoragev3.db.urunDB
+import com.hakanoguz33.brainstoragev3.viewmodel.urunDBdao
 import kotlinx.android.synthetic.main.fragment_product_category.*
 
 class productCategoryFragment : Fragment() {
@@ -22,6 +24,8 @@ class productCategoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val db = brainStorageDb(view.context)
+        urunList = urunDBdao().urunleriGetir(db)
         val adapter=activity?.let { productCategoryAdapter(it.applicationContext,urunList) }
         productCategoryRV.layoutManager = LinearLayoutManager(context)
         productCategoryRV.adapter = adapter

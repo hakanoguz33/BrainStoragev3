@@ -2,12 +2,13 @@ package com.hakanoguz33.brainstoragev3.viewmodel
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
 import com.hakanoguz33.brainstoragev3.db.urunDB
 
 class urunDBdao() {
     @SuppressLint("Range")
-    fun urunleriGetir(vt: brainStorageDb,saticiId:Int):List<urunDB>{
+    fun urunleriGetir(vt: brainStorageDb):List<urunDB>{
 
         val urunList = ArrayList<urunDB>()
 
@@ -20,9 +21,10 @@ class urunDBdao() {
             cursor.getInt(cursor.getColumnIndex("satici_id")),cursor.getInt(cursor.getColumnIndex("envanter_sayisi")),
             cursor.getString(cursor.getColumnIndex("resim_yolu")),cursor.getInt(cursor.getColumnIndex("kategori_id")))
 
-            if (urun.satici_id == saticiId){
+            //if (urun.satici_id == saticiId){
                 urunList.add(urun)
-            }
+            Log.e("tag","${urunList.toString()}")
+            //}
         }
         return urunList
     }
