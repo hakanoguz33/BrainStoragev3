@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
-class brainStorageDb(context:Context) : SQLiteOpenHelper(context,"brainStorageDatabase.db",null,1)   {
+class brainStorageDb(context:Context) : SQLiteOpenHelper(context,"brainStorageDatabase.sqlite",null,1)   {
     override fun onCreate(db: SQLiteDatabase?) {
 
         try {
@@ -30,7 +30,7 @@ class brainStorageDb(context:Context) : SQLiteOpenHelper(context,"brainStorageDa
                     ");")
 
         }catch (e:Exception){
-            Log.e("sql patladı",e.stackTrace.toString())
+            e.printStackTrace()
         }
     }
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
