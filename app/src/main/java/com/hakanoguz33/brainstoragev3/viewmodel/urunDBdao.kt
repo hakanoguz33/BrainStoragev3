@@ -25,4 +25,7 @@ class urunDBdao() {
         }
         return urunList
     }
+    fun urunEkraniGoster(vt: brainStorageDb,secilenUrun:urunDB){
+
+    }
 }
