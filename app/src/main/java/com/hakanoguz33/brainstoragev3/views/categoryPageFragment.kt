@@ -13,6 +13,7 @@ import com.hakanoguz33.brainstoragev3.db.brainStorageDb
 import com.hakanoguz33.brainstoragev3.db.kategoriDB
 import com.hakanoguz33.brainstoragev3.viewmodel.kategoriDBdao
 import kotlinx.android.synthetic.main.fragment_category_page.*
+import kotlinx.android.synthetic.main.satir_card_view.view.*
 
 class categoryPageFragment : Fragment() {
     private lateinit var kategoriList:List<kategoriDB>
@@ -20,11 +21,15 @@ class categoryPageFragment : Fragment() {
         val tasarim = inflater.inflate(R.layout.fragment_category_page,container,false)
         return tasarim
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var satici_id:Int = 0
+        kategoriList = ArrayList<kategoriDB>()
         val db = brainStorageDb(view.context)
-        kategoriList = kategoriDBdao().kategoriListele(db)
+        arguments?.let {
+            satici_id = categoryPageFragmentArgs.fromBundle(it).saticiId
+        }
+        kategoriList = kategoriDBdao().kategoriListele(db,satici_id)
         categoryPageRecyclerView.layoutManager = LinearLayoutManager(context)
         val adapter = activity?.let { categoryRV(it.applicationContext,kategoriList) }
         categoryPageRecyclerView.adapter = adapter

@@ -14,6 +14,7 @@ import com.hakanoguz33.brainstoragev3.db.brainStorageDb
 import com.hakanoguz33.brainstoragev3.db.saticiDB
 import com.hakanoguz33.brainstoragev3.viewmodel.saticiDBdao
 import kotlinx.android.synthetic.main.fragment_home_page.*
+import java.lang.Exception
 
 
 class homePageFragment : Fragment() {
@@ -37,8 +38,13 @@ class homePageFragment : Fragment() {
         {
                 if (saticiList[k].satici_user_name == username && saticiList[k].satici_password == password)
                 {
-                    Log.e("kullanici adi","${username+" "+password}")
-                    Navigation.findNavController(girisButton).navigate(R.id.action_homePageFragment_to_categoryPageFragment)
+                    try {
+                        val action = homePageFragmentDirections.actionHomePageFragmentToCategoryPageFragment(saticiList[k].satici_id)
+                        Navigation.findNavController(girisButton).navigate(action)
+
+                    }catch (e:Exception){
+                        e.printStackTrace()
+                    }
                 }
                 else{
                     Toast.makeText(context,"Hatalı Giriş. Kullanıcı adı ve parolanızı kontrol ediniz.",Toast.LENGTH_SHORT).show()

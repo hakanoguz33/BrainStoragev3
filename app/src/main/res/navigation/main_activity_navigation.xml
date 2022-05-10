@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_categoryPageFragment_to_productCategoryFragment"
             app:destination="@id/productCategoryFragment" />
+        <argument
+            android:name="satici_id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/productPageFragment"
@@ -36,5 +39,11 @@
         <action
             android:id="@+id/action_productCategoryFragment_to_productPageFragment"
             app:destination="@id/productPageFragment" />
+        <argument
+            android:name="satici_id"
+            app:argType="integer" />
+        <argument
+            android:name="kategori_id"
+            app:argType="integer" />
     </fragment>
 </navigation>

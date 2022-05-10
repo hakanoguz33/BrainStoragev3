@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.view.get
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
-import com.hakanoguz33.brainstoragev3.db.kategoriDB
 import com.hakanoguz33.brainstoragev3.db.urunDB
 
 class productCategoryAdapter(mContext: Context,private val disaridanListe:List<urunDB>):RecyclerView.Adapter<productCategoryAdapter.tasarimTutucu>() {
@@ -20,7 +18,7 @@ class productCategoryAdapter(mContext: Context,private val disaridanListe:List<u
         val kategoriName:TextView
         init {
             cardviewim = view.findViewById(R.id.card_viewim)
-            kategoriName = view.findViewById(R.id.urunadTextView)
+            kategoriName = view.findViewById(R.id.listelenecekTextView)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): tasarimTutucu {
@@ -32,7 +30,6 @@ class productCategoryAdapter(mContext: Context,private val disaridanListe:List<u
 
         val urunObject:urunDB = disaridanListe.get(position)
         holder.kategoriName.text = urunObject.isim
-
         holder.cardviewim.setOnClickListener {
             Navigation.findNavController(holder.cardviewim).navigate(R.id.action_productCategoryFragment_to_productPageFragment)
         }

@@ -25,7 +25,13 @@ class productCategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val db = brainStorageDb(view.context)
-        urunList = urunDBdao().urunleriGetir(db)
+        var satici_id = 0
+        var kategori_id =0
+        arguments?.let {
+            satici_id = productCategoryFragmentArgs.fromBundle(it).saticiId
+            kategori_id = productCategoryFragmentArgs.fromBundle(it).kategoriId
+        }
+        urunList = urunDBdao().urunleriGetir(db,satici_id,kategori_id)
         val adapter=activity?.let { productCategoryAdapter(it.applicationContext,urunList) }
         productCategoryRV.layoutManager = LinearLayoutManager(context)
         productCategoryRV.adapter = adapter

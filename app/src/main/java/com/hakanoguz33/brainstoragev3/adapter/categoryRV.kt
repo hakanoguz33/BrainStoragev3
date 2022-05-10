@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.db.kategoriDB
 import com.hakanoguz33.brainstoragev3.db.urunDB
+import com.hakanoguz33.brainstoragev3.views.categoryPageFragment
+import com.hakanoguz33.brainstoragev3.views.categoryPageFragmentDirections
 
 class categoryRV(private val mContext: Context, private val disaridanListe:List<kategoriDB>)
     : RecyclerView.Adapter<categoryRV.cardViewTasarimTutucu>() {
@@ -20,7 +22,7 @@ class categoryRV(private val mContext: Context, private val disaridanListe:List<
         var urunName:TextView
         init {
             satirCardView = view.findViewById(R.id.card_viewim)
-            urunName = view.findViewById(R.id.urunadTextView)
+            urunName = view.findViewById(R.id.listelenecekTextView)
         }
     }
 
@@ -32,9 +34,9 @@ class categoryRV(private val mContext: Context, private val disaridanListe:List<
     override fun onBindViewHolder(holder: cardViewTasarimTutucu, position: Int) {
         val temp:kategoriDB = disaridanListe.get(position)
         holder.urunName.text = temp.kategori_isim
-        Log.e("kategori","${holder.urunName.text}")
         holder.satirCardView.setOnClickListener{
-            Navigation.findNavController(holder.satirCardView).navigate(R.id.action_categoryPageFragment_to_productCategoryFragment)
+            val action = categoryPageFragmentDirections.actionCategoryPageFragmentToProductCategoryFragment(temp.satici_id,temp.kategori_id)
+            Navigation.findNavController(holder.satirCardView).navigate(action)
         }
     }
 

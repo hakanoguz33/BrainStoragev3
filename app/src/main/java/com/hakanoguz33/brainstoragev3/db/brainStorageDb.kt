@@ -16,6 +16,7 @@ class brainStorageDb(context:Context) : SQLiteOpenHelper(context,"brainStorageDa
 
             db?.execSQL("CREATE TABLE IF NOT EXISTS \"kategori\" (\n" +
                     "\t\"kategori_id\"\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+                    "\t\"satici_id\"\tINTEGER,\n" +
                     "\t\"kategori_isim\"\tTEXT\n" +
                     ");")
             db?.execSQL("CREATE TABLE IF NOT EXISTS \"urun\" (\n" +
