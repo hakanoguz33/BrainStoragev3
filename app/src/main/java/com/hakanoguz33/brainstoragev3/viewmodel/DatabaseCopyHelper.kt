@@ -8,8 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper
 
 import java.io.FileOutputStream
 import java.io.IOException
-import java.io.InputStream
-import java.io.OutputStream
 
 class DatabaseCopyHelper
 /**
@@ -150,8 +148,7 @@ class DatabaseCopyHelper
 
     companion object {
 
-        private val DB_NAME = "brainStorageDatabase.sqlite"
+        private val DB_NAME = "brainStorageDataBase.sqlite"
     }
-    //return cursor
 
 }

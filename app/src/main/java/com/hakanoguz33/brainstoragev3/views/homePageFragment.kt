@@ -1,31 +1,48 @@
 package com.hakanoguz33.brainstoragev3.views
 
 import android.os.Bundle
+import android.text.Editable
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.activity_main.*
 import com.hakanoguz33.brainstoragev3.R
+import com.hakanoguz33.brainstoragev3.db.brainStorageDb
+import com.hakanoguz33.brainstoragev3.db.saticiDB
+import com.hakanoguz33.brainstoragev3.viewmodel.saticiDBdao
 import kotlinx.android.synthetic.main.fragment_home_page.*
 
 
 class homePageFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val tasarim = layoutInflater.inflate(R.layout.fragment_home_page,container,false)
-
-
-
         return tasarim
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         girisButton.setOnClickListener {
-            Navigation.findNavController(girisButton).navigate(R.id.action_homePageFragment_to_categoryPageFragment)
-
+            username_password_check(editTextUserName.text.toString(),editTextPassword.text.toString())
         }
-        //Navigation.findNavController(girisButton).navigate(R.id.action_homePageFragment_to_categoryPageFragment)
+    }
+    fun username_password_check(username: String, password: String) {
+        val db = context?.let { brainStorageDb(it) }
+        val saticiList: List<saticiDB>? = db?.let { saticiDBdao().saticiBul(it) }
+        val size: Int? = saticiList?.size
+        Log.e("size:","${size}")
+        for (k in 0..(size!!-1))
+        {
+                if (saticiList[k].satici_user_name == username && saticiList[k].satici_password == password)
+                {
+                    Log.e("kullanici adi","${username+" "+password}")
+                    Navigation.findNavController(girisButton).navigate(R.id.action_homePageFragment_to_categoryPageFragment)
+                }
+                else{
+                    Toast.makeText(context,"Hatalı Giriş. Kullanıcı adı ve parolanızı kontrol ediniz.",Toast.LENGTH_SHORT).show()
+                }
+        }
     }
 }

@@ -3,9 +3,8 @@ package com.hakanoguz33.brainstoragev3.db
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.Log
 
-class brainStorageDb(context:Context) : SQLiteOpenHelper(context,"brainStorageDatabase.sqlite",null,1)   {
+class brainStorageDb(context:Context) : SQLiteOpenHelper(context,"brainStorageDataBase.sqlite",null,1)   {
     override fun onCreate(db: SQLiteDatabase?) {
 
         try {
@@ -19,7 +18,7 @@ class brainStorageDb(context:Context) : SQLiteOpenHelper(context,"brainStorageDa
                     "\t\"kategori_id\"\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
                     "\t\"kategori_isim\"\tTEXT\n" +
                     ");")
-            db?.execSQL("CREATE TABLE \"urun\" (\n" +
+            db?.execSQL("CREATE TABLE IF NOT EXISTS \"urun\" (\n" +
                     "\t\"id\"\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
                     "\t\"isim\"\tTEXT,\n" +
                     "\t\"satici_id\"\tINTEGER,\n" +
@@ -32,6 +31,7 @@ class brainStorageDb(context:Context) : SQLiteOpenHelper(context,"brainStorageDa
             e.printStackTrace()
         }
     }
+
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
         db?.execSQL("DROP TABLE IF EXISTS satici")
         db?.execSQL("DROP TABLE IF EXISTS kategori")

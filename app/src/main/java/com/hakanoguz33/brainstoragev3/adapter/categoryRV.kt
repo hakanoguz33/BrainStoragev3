@@ -32,7 +32,7 @@ class categoryRV(private val mContext: Context, private val disaridanListe:List<
     override fun onBindViewHolder(holder: cardViewTasarimTutucu, position: Int) {
         val temp:kategoriDB = disaridanListe.get(position)
         holder.urunName.text = temp.kategori_isim
-
+        Log.e("kategori","${holder.urunName.text}")
         holder.satirCardView.setOnClickListener{
             Navigation.findNavController(holder.satirCardView).navigate(R.id.action_categoryPageFragment_to_productCategoryFragment)
         }
