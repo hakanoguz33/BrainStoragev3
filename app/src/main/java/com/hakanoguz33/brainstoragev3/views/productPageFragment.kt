@@ -7,12 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.hakanoguz33.brainstoragev3.R
 class productPageFragment : Fragment() {
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_product_page, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val tasarim = layoutInflater.inflate(R.layout.fragment_product_page,container,false)
+        return tasarim
     }
 }
