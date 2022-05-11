@@ -12,6 +12,7 @@ import com.hakanoguz33.brainstoragev3.db.brainStorageDb
 import com.hakanoguz33.brainstoragev3.model.kategoriDB
 import com.hakanoguz33.brainstoragev3.db.kategoriDBdao
 import kotlinx.android.synthetic.main.fragment_category_page.*
+import kotlinx.android.synthetic.main.fragment_category_page.view.*
 
 class categoryPageFragment : Fragment() {
     private lateinit var kategoriList:List<kategoriDB>
@@ -31,5 +32,9 @@ class categoryPageFragment : Fragment() {
         categoryPageRecyclerView.layoutManager = LinearLayoutManager(context)
         val adapter = activity?.let { categoryRV(it.applicationContext,kategoriList) }
         categoryPageRecyclerView.adapter = adapter
+        categoryToolbar.title = "Kategoriler"
+        categoryToolbar.setTitleTextColor(resources.getColor(R.color.white))
+
+
     }
 }
