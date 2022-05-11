@@ -19,12 +19,12 @@
         app:layout_constraintTop_toBottomOf="@+id/productPageUrunAdiTextView" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ekleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="Ekle"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/cikarButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productPageUrunSayiTextView"
@@ -32,14 +32,14 @@
 
     <Button
         android:backgroundTint="@color/buttonColor"
-        android:id="@+id/button2"
+        android:id="@+id/cikarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="Çıkar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/ekleButton"
         app:layout_constraintTop_toBottomOf="@+id/productPageUrunSayiTextView" />
 
     <TextView
@@ -57,16 +57,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:gravity="center"
-        android:textSize="32sp"
-        android:textColor="@color/black"
         android:id="@+id/productPageUrunSayiTextView"
         android:layout_width="361dp"
         android:layout_height="41dp"
         android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:gravity="center"
+        android:singleLine="false"
+        android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productPageImageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

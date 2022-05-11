@@ -11,6 +11,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.db.urunDB
+import com.hakanoguz33.brainstoragev3.views.productCategoryFragmentDirections
+import com.hakanoguz33.brainstoragev3.views.productPageFragmentArgs
 
 class productCategoryAdapter(mContext: Context,private val disaridanListe:List<urunDB>):RecyclerView.Adapter<productCategoryAdapter.tasarimTutucu>() {
     inner class tasarimTutucu(view: View):RecyclerView.ViewHolder(view){
@@ -31,7 +33,8 @@ class productCategoryAdapter(mContext: Context,private val disaridanListe:List<u
         val urunObject:urunDB = disaridanListe.get(position)
         holder.kategoriName.text = urunObject.isim
         holder.cardviewim.setOnClickListener {
-            Navigation.findNavController(holder.cardviewim).navigate(R.id.action_productCategoryFragment_to_productPageFragment)
+            val action = productCategoryFragmentDirections.actionProductCategoryFragmentToProductPageFragment(urunObject.id)
+            Navigation.findNavController(holder.cardviewim).navigate(action)
         }
     }
 

@@ -30,7 +30,11 @@
         android:id="@+id/productPageFragment"
         android:name="com.hakanoguz33.brainstoragev3.views.productPageFragment"
         android:label="fragment_product_page"
-        tools:layout="@layout/fragment_product_page" />
+        tools:layout="@layout/fragment_product_page" >
+        <argument
+            android:name="urun_id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/productCategoryFragment"
         android:name="com.hakanoguz33.brainstoragev3.views.productCategoryFragment"

@@ -7,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hakanoguz33.brainstoragev3.R
-import com.hakanoguz33.brainstoragev3.adapter.categoryRV
 import com.hakanoguz33.brainstoragev3.adapter.productCategoryAdapter
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
-import com.hakanoguz33.brainstoragev3.db.kategoriDB
 import com.hakanoguz33.brainstoragev3.db.urunDB
 import com.hakanoguz33.brainstoragev3.viewmodel.urunDBdao
 import kotlinx.android.synthetic.main.fragment_product_category.*
@@ -31,7 +29,7 @@ class productCategoryFragment : Fragment() {
             satici_id = productCategoryFragmentArgs.fromBundle(it).saticiId
             kategori_id = productCategoryFragmentArgs.fromBundle(it).kategoriId
         }
-        urunList = urunDBdao().urunleriGetir(db,satici_id,kategori_id)
+        urunList = urunDBdao().urunGistesiGetir(db,satici_id,kategori_id)
         val adapter=activity?.let { productCategoryAdapter(it.applicationContext,urunList) }
         productCategoryRV.layoutManager = LinearLayoutManager(context)
         productCategoryRV.adapter = adapter

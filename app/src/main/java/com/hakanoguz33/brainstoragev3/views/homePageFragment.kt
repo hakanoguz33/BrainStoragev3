@@ -38,13 +38,9 @@ class homePageFragment : Fragment() {
         {
                 if (saticiList[k].satici_user_name == username && saticiList[k].satici_password == password)
                 {
-                    try {
                         val action = homePageFragmentDirections.actionHomePageFragmentToCategoryPageFragment(saticiList[k].satici_id)
                         Navigation.findNavController(girisButton).navigate(action)
-
-                    }catch (e:Exception){
-                        e.printStackTrace()
-                    }
+                        break
                 }
                 else{
                     Toast.makeText(context,"Hatalı Giriş. Kullanıcı adı ve parolanızı kontrol ediniz.",Toast.LENGTH_SHORT).show()
