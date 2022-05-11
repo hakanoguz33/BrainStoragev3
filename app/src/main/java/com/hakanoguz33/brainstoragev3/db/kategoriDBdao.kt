@@ -1,8 +1,8 @@
-package com.hakanoguz33.brainstoragev3.viewmodel
+package com.hakanoguz33.brainstoragev3.db
 
 import android.annotation.SuppressLint
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
-import com.hakanoguz33.brainstoragev3.db.kategoriDB
+import com.hakanoguz33.brainstoragev3.model.kategoriDB
 
 class kategoriDBdao() {
     @SuppressLint("Range")

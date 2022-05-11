@@ -1,14 +1,9 @@
-package com.hakanoguz33.brainstoragev3.model
+package com.hakanoguz33.brainstoragev3.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
-import com.hakanoguz33.brainstoragev3.adapter.categoryRV
-import com.hakanoguz33.brainstoragev3.viewmodel.DatabaseCopyHelper
-import kotlinx.android.synthetic.main.fragment_category_page.*
+import com.hakanoguz33.brainstoragev3.db.DatabaseCopyHelper
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

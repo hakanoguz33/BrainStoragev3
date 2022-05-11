@@ -1,7 +1,6 @@
 package com.hakanoguz33.brainstoragev3.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
-import com.hakanoguz33.brainstoragev3.db.kategoriDB
-import com.hakanoguz33.brainstoragev3.db.urunDB
-import com.hakanoguz33.brainstoragev3.views.categoryPageFragment
+import com.hakanoguz33.brainstoragev3.model.kategoriDB
 import com.hakanoguz33.brainstoragev3.views.categoryPageFragmentDirections
 
 class categoryRV(private val mContext: Context, private val disaridanListe:List<kategoriDB>)
@@ -32,7 +29,7 @@ class categoryRV(private val mContext: Context, private val disaridanListe:List<
     }
 
     override fun onBindViewHolder(holder: cardViewTasarimTutucu, position: Int) {
-        val temp:kategoriDB = disaridanListe.get(position)
+        val temp: kategoriDB = disaridanListe.get(position)
         holder.urunName.text = temp.kategori_isim
         holder.satirCardView.setOnClickListener{
             val action = categoryPageFragmentDirections.actionCategoryPageFragmentToProductCategoryFragment(temp.satici_id,temp.kategori_id)

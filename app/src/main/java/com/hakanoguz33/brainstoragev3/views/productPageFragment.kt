@@ -2,7 +2,6 @@ package com.hakanoguz33.brainstoragev3.views
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,8 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
-import com.hakanoguz33.brainstoragev3.db.urunDB
-import com.hakanoguz33.brainstoragev3.viewmodel.urunDBdao
+import com.hakanoguz33.brainstoragev3.model.urunDB
+import com.hakanoguz33.brainstoragev3.db.urunDBdao
 import kotlinx.android.synthetic.main.fragment_product_page.view.*
 
 
@@ -25,7 +24,7 @@ class productPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var urunId:Int = 0
-        var urun:urunDB = urunDB(1,"a",4,4,"",5)
+        var urun: urunDB = urunDB(1,"a",4,4,"",5)
         arguments?.let {
             urunId = productPageFragmentArgs.fromBundle(it).urunId
         }

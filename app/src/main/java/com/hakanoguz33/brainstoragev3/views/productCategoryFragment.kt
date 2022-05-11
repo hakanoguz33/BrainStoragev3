@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.adapter.productCategoryAdapter
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
-import com.hakanoguz33.brainstoragev3.db.urunDB
-import com.hakanoguz33.brainstoragev3.viewmodel.urunDBdao
+import com.hakanoguz33.brainstoragev3.model.urunDB
+import com.hakanoguz33.brainstoragev3.db.urunDBdao
 import kotlinx.android.synthetic.main.fragment_product_category.*
 
 class productCategoryFragment : Fragment() {

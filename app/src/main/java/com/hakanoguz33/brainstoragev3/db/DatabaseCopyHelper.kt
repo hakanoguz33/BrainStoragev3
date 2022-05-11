@@ -1,4 +1,4 @@
-package com.hakanoguz33.brainstoragev3.viewmodel
+package com.hakanoguz33.brainstoragev3.db
 
 import android.content.Context
 import android.database.SQLException

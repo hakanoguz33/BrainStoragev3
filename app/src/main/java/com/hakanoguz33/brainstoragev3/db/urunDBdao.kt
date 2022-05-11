@@ -1,11 +1,8 @@
-package com.hakanoguz33.brainstoragev3.viewmodel
+package com.hakanoguz33.brainstoragev3.db
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.util.Log
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
-import com.hakanoguz33.brainstoragev3.db.urunDB
-import kotlin.Exception
+import com.hakanoguz33.brainstoragev3.model.urunDB
 
 class urunDBdao() {
     @SuppressLint("Range")
@@ -27,8 +24,8 @@ class urunDBdao() {
         return urunList
     }
     @SuppressLint("Range")
-    fun urunGetir(vt: brainStorageDb, urunId:Int):urunDB {
-        lateinit var urun:urunDB
+    fun urunGetir(vt: brainStorageDb, urunId:Int): urunDB {
+        lateinit var urun: urunDB
 
         val db= vt.writableDatabase
 

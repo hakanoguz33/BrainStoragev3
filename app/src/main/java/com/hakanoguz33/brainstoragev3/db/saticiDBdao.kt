@@ -1,8 +1,8 @@
-package com.hakanoguz33.brainstoragev3.viewmodel
+package com.hakanoguz33.brainstoragev3.db
 
 import android.annotation.SuppressLint
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
-import com.hakanoguz33.brainstoragev3.db.saticiDB
+import com.hakanoguz33.brainstoragev3.model.saticiDB
 
 class saticiDBdao() {
     @SuppressLint("Range")

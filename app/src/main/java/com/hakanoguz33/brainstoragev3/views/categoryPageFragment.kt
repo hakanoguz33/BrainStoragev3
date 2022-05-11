@@ -6,14 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.adapter.categoryRV
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
-import com.hakanoguz33.brainstoragev3.db.kategoriDB
-import com.hakanoguz33.brainstoragev3.viewmodel.kategoriDBdao
+import com.hakanoguz33.brainstoragev3.model.kategoriDB
+import com.hakanoguz33.brainstoragev3.db.kategoriDBdao
 import kotlinx.android.synthetic.main.fragment_category_page.*
-import kotlinx.android.synthetic.main.satir_card_view.view.*
 
 class categoryPageFragment : Fragment() {
     private lateinit var kategoriList:List<kategoriDB>

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.homePageFragment"
-    android:background="@color/brainTheme">
+    android:background="@color/brainTheme"
+    tools:context=".views.homePageFragment">
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -17,7 +17,6 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUserName" />
 
@@ -63,4 +62,20 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/sifreGizleImageButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="236dp"
+        android:backgroundTint="@color/brainTheme"
+        android:foregroundTint="#BC1717"
+        android:src="@android:drawable/ic_menu_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextPassword" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

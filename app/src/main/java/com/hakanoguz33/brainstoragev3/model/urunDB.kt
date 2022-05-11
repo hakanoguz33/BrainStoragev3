@@ -1,4 +1,4 @@
-package com.hakanoguz33.brainstoragev3.db
+package com.hakanoguz33.brainstoragev3.model
 
 data class urunDB(var id:Int,
                   var isim:String,

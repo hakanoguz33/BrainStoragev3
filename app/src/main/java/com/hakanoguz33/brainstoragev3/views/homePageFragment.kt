@@ -1,20 +1,21 @@
 package com.hakanoguz33.brainstoragev3.views
 
 import android.os.Bundle
-import android.text.Editable
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
-import com.hakanoguz33.brainstoragev3.db.saticiDB
-import com.hakanoguz33.brainstoragev3.viewmodel.saticiDBdao
+import com.hakanoguz33.brainstoragev3.model.saticiDB
+import com.hakanoguz33.brainstoragev3.db.saticiDBdao
 import kotlinx.android.synthetic.main.fragment_home_page.*
-import java.lang.Exception
 
 
 class homePageFragment : Fragment() {
@@ -27,6 +28,12 @@ class homePageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         girisButton.setOnClickListener {
             username_password_check(editTextUserName.text.toString(),editTextPassword.text.toString())
+        }
+        sifreGizleImageButton.setOnClickListener{
+            if (editTextPassword.transformationMethod == HideReturnsTransformationMethod.getInstance())
+                editTextPassword.transformationMethod = PasswordTrasformationMethod.getInstance()
+            else
+                editTextPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
         }
     }
     fun username_password_check(username: String, password: String) {
