@@ -31,7 +31,7 @@ class homePageFragment : Fragment() {
         }
         sifreGizleImageButton.setOnClickListener{
             if (editTextPassword.transformationMethod == HideReturnsTransformationMethod.getInstance())
-                editTextPassword.transformationMethod = PasswordTrasformationMethod.getInstance()
+                editTextPassword.transformationMethod = PasswordTransformationMethod.getInstance()
             else
                 editTextPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
         }
