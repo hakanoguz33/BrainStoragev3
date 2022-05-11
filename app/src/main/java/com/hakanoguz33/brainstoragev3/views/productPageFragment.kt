@@ -1,10 +1,12 @@
 package com.hakanoguz33.brainstoragev3.views
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.hakanoguz33.brainstoragev3.R
@@ -40,12 +42,45 @@ class productPageFragment : Fragment() {
         view.productPageUrunSayiTextView.text = "Envanterdeki Kalan Adet:${urun.envanter_sayisi.toString()}"
 
         view.ekleButton.setOnClickListener {
-            vt?.let { it1 -> urunDBdao().envanterArttır(it1,1,urun.id) }
-            onViewCreated(view,savedInstanceState)
+            val tasarim = layoutInflater.inflate(R.layout.alertview_tasarim,null)
+            val ad = AlertDialog.Builder(context)
+            val edittextAlert = tasarim.findViewById(R.id.editTextAlert) as EditText
+            ad.setView(tasarim)
+            ad.setMessage("Eklemek istediğiniz miktarı giriniz")
+            ad.setTitle("Envantere Ekle")
+            ad.setIcon(R.mipmap.brainstorage_launcher_foreground)
+
+            ad.setPositiveButton("Ekle"){ dialogInterface, i ->
+                val editableToString = edittextAlert.text.toString()
+                vt?.let { it1 -> urunDBdao().envanterArttır(it1,editableToString.toInt(),urun.id) }
+                onViewCreated(view,savedInstanceState)
+            }
+
+            ad.setNegativeButton("Iptal"){ dialogInterface, i->
+                //do nothing
+            }
+
+            ad.create().show()
         }
-        view.cikarButton.setOnClickListener {
-            vt?.let { it1 -> urunDBdao().envanterAzalt(it1,1,urun.id) }
-            onViewCreated(view,savedInstanceState)
+        view.cikarButton.setOnClickListener {val tasarim = layoutInflater.inflate(R.layout.alertview_tasarim,null)
+            val ad = AlertDialog.Builder(context)
+            val edittextAlert = tasarim.findViewById(R.id.editTextAlert) as EditText
+            ad.setView(tasarim)
+            ad.setMessage("Çıkarmak istediğiniz miktarı giriniz")
+            ad.setTitle("Envanterden Çıkar")
+            ad.setIcon(R.mipmap.brainstorage_launcher_foreground)
+
+            ad.setPositiveButton("Çıkar"){ dialogInterface, i ->
+                val editableToString = edittextAlert.text.toString()
+                vt?.let { it1 -> urunDBdao().envanterAzalt(it1,editableToString.toInt(),urun.id) }
+                onViewCreated(view,savedInstanceState)
+            }
+
+            ad.setNegativeButton("Iptal"){ dialogInterface, i->
+                //do nothing
+            }
+
+            ad.create().show()
         }
     }
 }
