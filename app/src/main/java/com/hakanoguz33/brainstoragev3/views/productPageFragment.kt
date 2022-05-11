@@ -48,17 +48,14 @@ class productPageFragment : Fragment() {
             ad.setMessage("Eklemek istediğiniz miktarı giriniz")
             ad.setTitle("Envantere Ekle")
             ad.setIcon(R.mipmap.brainstorage_launcher_foreground)
-
             ad.setPositiveButton("Ekle"){ dialogInterface, i ->
                 val editableToString = edittextAlert.text.toString()
                 vt?.let { it1 -> urunDBdao().envanterArttır(it1,editableToString.toInt(),urun.id) }
                 onViewCreated(view,savedInstanceState)
             }
-
             ad.setNegativeButton("Iptal"){ dialogInterface, i->
                 //do nothing
             }
-
             ad.create().show()
         }
         view.cikarButton.setOnClickListener {val tasarim = layoutInflater.inflate(R.layout.alertview_tasarim,null)
