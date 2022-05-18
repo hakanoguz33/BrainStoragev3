@@ -50,22 +50,4 @@
             android:name="kategori_id"
             app:argType="integer" />
     </fragment>
-    <fragment
-        android:id="@+id/errorFragment"
-        android:name="com.hakanoguz33.brainstoragev3.views.ErrorFragment"
-        android:label="fragment_error"
-        tools:layout="@layout/fragment_error" >
-        <action
-            android:id="@+id/action_errorFragment_to_homePageFragment"
-            app:destination="@id/homePageFragment" />
-        <action
-            android:id="@+id/action_errorFragment_to_categoryPageFragment"
-            app:destination="@id/categoryPageFragment" />
-        <action
-            android:id="@+id/action_errorFragment_to_productCategoryFragment"
-            app:destination="@id/productCategoryFragment" />
-        <action
-            android:id="@+id/action_errorFragment_to_productPageFragment"
-            app:destination="@id/productPageFragment" />
-    </fragment>
 </navigation>

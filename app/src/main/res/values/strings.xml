@@ -2,4 +2,5 @@
     <string name="app_name">BrainStoragev3</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="opps_burada_bir_ey_yok">Opps.. Burada bir şey yok</string>
 </resources>

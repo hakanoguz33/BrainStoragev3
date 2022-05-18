@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.view.isVisible
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
@@ -28,12 +29,11 @@ class productCategoryAdapter(mContext: Context,private val disaridanListe:List<u
 
     override fun onBindViewHolder(holder: tasarimTutucu, position: Int) {
 
-        val urunObject: urunDB = disaridanListe.get(position)
-        holder.kategoriName.text = urunObject.isim
-        holder.cardviewim.setOnClickListener {
-            val action = productCategoryFragmentDirections.actionProductCategoryFragmentToProductPageFragment(urunObject.id)
-            Navigation.findNavController(holder.cardviewim).navigate(action)
-        }
+            val urunObject: urunDB = disaridanListe.get(position)
+            holder.kategoriName.text = urunObject.isim
+            holder.cardviewim.setOnClickListener {
+                val action = productCategoryFragmentDirections.actionProductCategoryFragmentToProductPageFragment(urunObject.id)
+                Navigation.findNavController(holder.cardviewim).navigate(action)}
     }
 
     override fun getItemCount(): Int {

@@ -10,7 +10,10 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.model.kategoriDB
+import com.hakanoguz33.brainstoragev3.views.categoryPageFragment
 import com.hakanoguz33.brainstoragev3.views.categoryPageFragmentDirections
+import com.hakanoguz33.brainstoragev3.views.productCategoryFragmentArgs
+import com.hakanoguz33.brainstoragev3.views.productCategoryFragmentDirections
 
 class categoryRV(private val mContext: Context, private val disaridanListe:List<kategoriDB>)
     : RecyclerView.Adapter<categoryRV.cardViewTasarimTutucu>() {
