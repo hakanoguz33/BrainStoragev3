@@ -54,7 +54,8 @@ class urunDBdao() {
     }
     fun envanterAzalt(vt:brainStorageDb,sayi:Int,urunId: Int){
         val db= vt.writableDatabase
-        db?.execSQL("UPDATE urun SET envanter_sayisi = envanter_sayisi-$sayi WHERE id = $urunId AND envater_sayisi>=$sayi")
+        db?.execSQL("UPDATE urun SET envanter_sayisi = envanter_sayisi-$sayi " +
+                "WHERE id = $urunId AND envanter_sayisi>=$sayi")
     }
     fun envanterGuncelle(vt:brainStorageDb,sayi:Int,urunId: Int){
         val db= vt.writableDatabase
