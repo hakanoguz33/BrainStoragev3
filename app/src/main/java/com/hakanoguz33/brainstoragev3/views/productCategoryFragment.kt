@@ -33,5 +33,6 @@ class productCategoryFragment : Fragment() {
         val adapter=activity?.let { productCategoryAdapter(it.applicationContext,urunList) }
         productCategoryRV.layoutManager = LinearLayoutManager(context)
         productCategoryRV.adapter = adapter
+        productCategoryToolbar.title = "Ürünler"
     }
 }

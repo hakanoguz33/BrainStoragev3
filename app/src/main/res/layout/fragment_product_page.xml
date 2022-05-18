@@ -1,73 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".views.productPageFragment"
-    android:background="@color/brainTheme">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/productPageImageView"
-        android:layout_width="274dp"
-        android:layout_height="252dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productPageUrunAdiTextView" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/brainTheme">
 
-    <Button
-        android:id="@+id/ekleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Ekle"
-        app:layout_constraintEnd_toStartOf="@+id/cikarButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productPageUrunSayiTextView"
-        android:backgroundTint="@color/buttonColor"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/brainTheme"
+            tools:context=".views.productPageFragment">
 
-    <Button
-        android:backgroundTint="@color/buttonColor"
-        android:id="@+id/cikarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Çıkar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ekleButton"
-        app:layout_constraintTop_toBottomOf="@+id/productPageUrunSayiTextView" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/productPageToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/buttonColor"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:subtitleTextColor="@color/white"
+                app:titleTextColor="@color/white" />
 
-    <TextView
-        android:id="@+id/productPageUrunAdiTextView"
-        android:layout_width="361dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/productPageImageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/productPageImageView"
+                android:layout_width="274dp"
+                android:layout_height="252dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productPageUrunAdiTextView" />
 
-    <TextView
-        android:id="@+id/productPageUrunSayiTextView"
-        android:layout_width="361dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="64dp"
-        android:gravity="center"
-        android:singleLine="false"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productPageImageView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/ekleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:backgroundTint="@color/buttonColor"
+                android:text="Ekle"
+                app:layout_constraintEnd_toStartOf="@+id/miktarGuncelleButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productPageUrunSayiTextView" />
+
+            <Button
+                android:id="@+id/cikarButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:backgroundTint="@color/buttonColor"
+                android:text="Çıkar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/miktarGuncelleButton"
+                app:layout_constraintTop_toBottomOf="@+id/productPageUrunSayiTextView" />
+
+            <TextView
+                android:id="@+id/productPageUrunAdiTextView"
+                android:layout_width="361dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toTopOf="@+id/productPageImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productPageToolbar" />
+
+            <TextView
+                android:id="@+id/productPageUrunSayiTextView"
+                android:layout_width="361dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="64dp"
+                android:gravity="center"
+                android:singleLine="false"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productPageImageView" />
+
+            <Button
+                android:id="@+id/miktarGuncelleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="62dp"
+                android:backgroundTint="@color/buttonColor"
+                android:text="Güncelle"
+                app:layout_constraintEnd_toStartOf="@+id/cikarButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ekleButton"
+                app:layout_constraintTop_toBottomOf="@+id/productPageUrunSayiTextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>

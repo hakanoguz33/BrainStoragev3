@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.adapter.categoryRV
@@ -33,8 +34,5 @@ class categoryPageFragment : Fragment() {
         val adapter = activity?.let { categoryRV(it.applicationContext,kategoriList) }
         categoryPageRecyclerView.adapter = adapter
         categoryToolbar.title = "Kategoriler"
-        categoryToolbar.setTitleTextColor(resources.getColor(R.color.white))
-
-
     }
 }

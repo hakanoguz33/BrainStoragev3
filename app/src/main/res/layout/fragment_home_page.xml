@@ -1,83 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/brainTheme"
-        tools:context=".views.homePageFragment">
+        android:backgroundTint="@color/brainTheme">
 
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="Şifre"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextUserName" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/brainTheme"
+            tools:context=".views.homePageFragment">
 
-        <EditText
-            android:id="@+id/editTextUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="101dp"
-            android:ems="10"
-            android:hint="Kullanıcı Adı"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/brainLogo" />
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Şifre"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextUserName" />
 
-        <Button
+            <EditText
+                android:id="@+id/editTextUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="101dp"
+                android:ems="10"
+                android:hint="Kullanıcı Adı"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/brainLogo" />
 
-            android:id="@+id/girisButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@color/buttonColor"
-            android:text="Giriş"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+            <Button
 
-        <ImageView
-            android:id="@+id/brainLogo"
-            android:layout_width="240dp"
-            android:layout_height="240dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="80dp"
-            android:src="@mipmap/brainstorage_launcher_foreground"
-            app:layout_constraintBottom_toTopOf="@+id/editTextUserName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/girisButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/buttonColor"
+                android:text="Giriş"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
-        <ImageButton
-            android:id="@+id/sifreGizleImageButton"
-            android:layout_width="64dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="232dp"
-            android:backgroundTint="@color/brainTheme"
-            android:contentDescription="@android:string/copy"
-            android:src="@android:drawable/ic_menu_view"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editTextPassword" />
+            <ImageView
+                android:id="@+id/brainLogo"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="80dp"
+                android:src="@mipmap/brainstorage_launcher_foreground"
+                app:layout_constraintBottom_toTopOf="@+id/editTextUserName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+            <ImageButton
+                android:id="@+id/sifreGizleImageButton"
+                android:layout_width="64dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="131dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="@color/brainTheme"
+                android:contentDescription="@android:string/copy"
+                android:src="@android:drawable/ic_menu_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/editTextPassword"
+                app:layout_constraintTop_toBottomOf="@+id/brainLogo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

@@ -12,12 +12,14 @@ import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
 import com.hakanoguz33.brainstoragev3.model.urunDB
 import com.hakanoguz33.brainstoragev3.db.urunDBdao
+import kotlinx.android.synthetic.main.fragment_product_page.*
 import kotlinx.android.synthetic.main.fragment_product_page.view.*
 
 
 class productPageFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val tasarim = layoutInflater.inflate(R.layout.fragment_product_page,container,false)
+
         return tasarim
     }
 
@@ -39,7 +41,7 @@ class productPageFragment : Fragment() {
         imageview.setImageDrawable(res)
         view.productPageUrunAdiTextView.text = urun.isim
         view.productPageUrunSayiTextView.text = "Envanterdeki Kalan Adet:${urun.envanter_sayisi.toString()}"
-
+        productPageToolbar.setTitle("Ürün Detay")
         view.ekleButton.setOnClickListener {
             val tasarim = layoutInflater.inflate(R.layout.alertview_tasarim,null)
             val ad = AlertDialog.Builder(context)
@@ -58,7 +60,8 @@ class productPageFragment : Fragment() {
             }
             ad.create().show()
         }
-        view.cikarButton.setOnClickListener {val tasarim = layoutInflater.inflate(R.layout.alertview_tasarim,null)
+        view.cikarButton.setOnClickListener {
+            val tasarim = layoutInflater.inflate(R.layout.alertview_tasarim,null)
             val ad = AlertDialog.Builder(context)
             val edittextAlert = tasarim.findViewById(R.id.editTextAlert) as EditText
             ad.setView(tasarim)
@@ -69,6 +72,28 @@ class productPageFragment : Fragment() {
             ad.setPositiveButton("Çıkar"){ dialogInterface, i ->
                 val editableToString = edittextAlert.text.toString()
                 vt?.let { it1 -> urunDBdao().envanterAzalt(it1,editableToString.toInt(),urun.id) }
+                onViewCreated(view,savedInstanceState)
+            }
+
+            ad.setNegativeButton("Iptal"){ dialogInterface, i->
+                //do nothing
+            }
+
+            ad.create().show()
+
+        }
+        view.miktarGuncelleButton.setOnClickListener {
+            val tasarim = layoutInflater.inflate(R.layout.alertview_tasarim,null)
+            val ad = AlertDialog.Builder(context)
+            val edittextAlert = tasarim.findViewById(R.id.editTextAlert) as EditText
+            ad.setView(tasarim)
+            ad.setMessage("Güncelleme için Miktar Girin")
+            ad.setTitle("Envanter Güncelle")
+            ad.setIcon(R.mipmap.brainstorage_launcher_foreground)
+
+            ad.setPositiveButton("Güncelle"){ dialogInterface, i ->
+                val editableToString = edittextAlert.text.toString()
+                vt?.let { it1 -> urunDBdao().envanterGuncelle(it1,editableToString.toInt(),urun.id) }
                 onViewCreated(view,savedInstanceState)
             }
 
