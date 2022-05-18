@@ -12,7 +12,9 @@ class kategoriDBdao() {
         val cursor = db.rawQuery("SELECT * FROM kategori",null)
         while(cursor.moveToNext())
         {
-            val kategori = kategoriDB(cursor.getInt(cursor.getColumnIndex("kategori_id")),cursor.getString(cursor.getColumnIndex("kategori_isim")),cursor.getInt(cursor.getColumnIndex("satici_id")))
+            val kategori = kategoriDB(cursor.getInt(cursor.getColumnIndex("kategori_id")),
+                                                    cursor.getString(cursor.getColumnIndex("kategori_isim")),
+                                                    cursor.getInt(cursor.getColumnIndex("satici_id")))
             if(kategori.satici_id == satici_id)
                 liste.add(kategori)
         }
