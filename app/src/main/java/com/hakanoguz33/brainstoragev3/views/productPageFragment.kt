@@ -57,7 +57,7 @@ class productPageFragment : Fragment() {
                 if (!editableToString.contains(','))
                     vt?.let { it1 -> urunDBdao().envanterArttır(it1,editableToString.toInt(),urun.id) }
                 else
-                    Toast.makeText(view.context,"Geçersiz",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(view.context,"Hata! GEÇERLİ BİR SAYI GİRİNİZ",Toast.LENGTH_SHORT).show()
                 onViewCreated(view,savedInstanceState)
             }
             ad.setNegativeButton("Iptal"){ dialogInterface, i->
@@ -76,7 +76,10 @@ class productPageFragment : Fragment() {
 
             ad.setPositiveButton("Çıkar"){ dialogInterface, i ->
                 val editableToString = edittextAlert.text.toString()
-                vt?.let { it1 -> urunDBdao().envanterAzalt(it1,editableToString.toInt(),urun.id) }
+                if(!editableToString.contains(','))
+                    vt?.let { it1 -> urunDBdao().envanterAzalt(it1,editableToString.toInt(),urun.id) }
+                else
+                    Toast.makeText(it.context,"Hata! GEÇERLİ BİR SAYI GİRİNİZ",Toast.LENGTH_SHORT).show()
                 onViewCreated(view,savedInstanceState)
             }
 
@@ -98,7 +101,10 @@ class productPageFragment : Fragment() {
 
             ad.setPositiveButton("Güncelle"){ dialogInterface, i ->
                 val editableToString = edittextAlert.text.toString()
-                vt?.let { it1 -> urunDBdao().envanterGuncelle(it1,editableToString.toInt(),urun.id) }
+                if(!editableToString.contains(','))
+                    vt?.let { it1 -> urunDBdao().envanterGuncelle(it1,editableToString.toInt(),urun.id) }
+                else
+                    Toast.makeText(it.context,"Hata! GEÇERLİ BİR SAYI GİRİNİZ",Toast.LENGTH_SHORT).show()
                 onViewCreated(view,savedInstanceState)
             }
 
