@@ -1,6 +1,8 @@
 package com.hakanoguz33.brainstoragev3.db
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
 import com.hakanoguz33.brainstoragev3.model.urunDB
@@ -48,19 +50,14 @@ class urunDBdao() {
 
     fun envanterArttır(vt:brainStorageDb,sayi:Int,urunId: Int){
         val db= vt.writableDatabase
-        if(sayi>=0)
-            db?.execSQL("UPDATE urun SET envanter_sayisi = envanter_sayisi+$sayi WHERE id = $urunId")
+        db?.execSQL("UPDATE urun SET envanter_sayisi = envanter_sayisi+$sayi WHERE id = $urunId")
     }
     fun envanterAzalt(vt:brainStorageDb,sayi:Int,urunId: Int){
         val db= vt.writableDatabase
-        if(sayi>=0)
-            db?.execSQL("UPDATE urun SET envanter_sayisi = envanter_sayisi-$sayi WHERE id = $urunId AND envater_sayisi>=$sayi")
+        db?.execSQL("UPDATE urun SET envanter_sayisi = envanter_sayisi-$sayi WHERE id = $urunId AND envater_sayisi>=$sayi")
     }
     fun envanterGuncelle(vt:brainStorageDb,sayi:Int,urunId: Int){
         val db= vt.writableDatabase
-        if(sayi>=0)
-            db?.execSQL("UPDATE urun SET envanter_sayisi = $sayi WHERE id = $urunId")
-        else
-            Toast.makeText()
+        db?.execSQL("UPDATE urun SET envanter_sayisi = $sayi WHERE id = $urunId")
     }
 }

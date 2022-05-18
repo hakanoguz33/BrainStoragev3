@@ -2,11 +2,13 @@ package com.hakanoguz33.brainstoragev3.views
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.hakanoguz33.brainstoragev3.R
 import com.hakanoguz33.brainstoragev3.db.brainStorageDb
@@ -52,7 +54,10 @@ class productPageFragment : Fragment() {
             ad.setIcon(R.mipmap.brainstorage_launcher_foreground)
             ad.setPositiveButton("Ekle"){ dialogInterface, i ->
                 val editableToString = edittextAlert.text.toString()
-                vt?.let { it1 -> urunDBdao().envanterArttır(it1,editableToString.toInt(),urun.id) }
+                if (!editableToString.contains(','))
+                    vt?.let { it1 -> urunDBdao().envanterArttır(it1,editableToString.toInt(),urun.id) }
+                else
+                    Toast.makeText(view.context,"Geçersiz",Toast.LENGTH_SHORT).show()
                 onViewCreated(view,savedInstanceState)
             }
             ad.setNegativeButton("Iptal"){ dialogInterface, i->
